@@ -73,21 +73,29 @@ while running:
     screen.fill(background)
     # Display area:
     display = pygame.draw.rect(screen, WHITE, [display_x, display_y, 280, 60])
-    key_x = 10
-    key_y = 80
-    i = 1
-    for key in range(4):
-        generate_key = pygame.draw.rect(screen, WHITE, [key_x, key_y, KEY_WIDTH, KEY_HEIGHT])
-        key_x += 72
 
-    # key_x += 10
-    # key_y = 200
-    # for key in range(4):
-    #     generate_key = pygame.draw.rect(screen, WHITE, [key_x, key_y, KEY_WIDTH, KEY_HEIGHT])
-    #     key_x += 72
+    # Keys display:
+    seven = pygame.draw.rect(screen, WHITE, [10, 90, KEY_WIDTH, KEY_HEIGHT])
+    eight = pygame.draw.rect(screen, WHITE, [82, 90, KEY_WIDTH, KEY_HEIGHT])
+    nine = pygame.draw.rect(screen, WHITE, [154, 90, KEY_WIDTH, KEY_HEIGHT])
+    divide = pygame.draw.rect(screen, WHITE, [226, 90, KEY_WIDTH, KEY_HEIGHT])
+    four = pygame.draw.rect(screen, WHITE, [10, 167, KEY_WIDTH, KEY_HEIGHT])
+    five = pygame.draw.rect(screen, WHITE, [82, 167, KEY_WIDTH, KEY_HEIGHT])
+    six = pygame.draw.rect(screen, WHITE, [154, 167, KEY_WIDTH, KEY_HEIGHT])
+    multiply = pygame.draw.rect(screen, WHITE, [226, 167, KEY_WIDTH, KEY_HEIGHT])
+    one = pygame.draw.rect(screen, WHITE, [10, 244, KEY_WIDTH, KEY_HEIGHT])
+    two = pygame.draw.rect(screen, WHITE, [82, 244, KEY_WIDTH, KEY_HEIGHT])
+    three = pygame.draw.rect(screen, WHITE, [154, 244, KEY_WIDTH, KEY_HEIGHT])
+    minus = pygame.draw.rect(screen, WHITE, [226, 244, KEY_WIDTH, KEY_HEIGHT])
+    zero = pygame.draw.rect(screen, WHITE, [10, 321, KEY_WIDTH, KEY_HEIGHT])
+    period = pygame.draw.rect(screen, WHITE, [82, 321, KEY_WIDTH, KEY_HEIGHT])
+    equals = pygame.draw.rect(screen, WHITE, [154, 321, KEY_WIDTH, KEY_HEIGHT])
+    add = pygame.draw.rect(screen, WHITE, [226, 321, KEY_WIDTH, KEY_HEIGHT])
 
-    # Design the keys and display area:
-    #
+
+
+
+
 
     for event in pygame.event.get():
         if event == pygame.QUIT:
