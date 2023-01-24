@@ -50,7 +50,10 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 display_x = 10
 display_y = 10
+KEY_HEIGHT = 67
+KEY_WIDTH = 62
 fps = 60
+keys = [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', 0, '.', '=', '+']
 
 pygame.init()
 
@@ -70,18 +73,31 @@ while running:
     screen.fill(background)
     # Display area:
     display = pygame.draw.rect(screen, WHITE, [display_x, display_y, 280, 60])
+    key_x = 10
+    key_y = 80
+    i = 1
+    for key in range(4):
+        generate_key = pygame.draw.rect(screen, WHITE, [key_x, key_y, KEY_WIDTH, KEY_HEIGHT])
+        key_x += 72
+
+    # key_x += 10
+    # key_y = 200
+    # for key in range(4):
+    #     generate_key = pygame.draw.rect(screen, WHITE, [key_x, key_y, KEY_WIDTH, KEY_HEIGHT])
+    #     key_x += 72
+
+    # Design the keys and display area:
+    #
 
     for event in pygame.event.get():
         if event == pygame.QUIT:
             running = False
 
 
-
-    # player = pygame.draw.rect(screen, GREEN, [player_x, player_y, 20, 20])
     pygame.display.flip()
 
 pygame.quit()
 
-# Design the keys and display area.
+
 # Design functions.
 # Add functionality to keys.
