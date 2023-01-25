@@ -74,6 +74,8 @@ while running:
     screen.fill(background)
     # Display area:
     display = pygame.draw.rect(screen, WHITE, [display_x, display_y, 280, 60])
+    display_text = font.render("0", True, BLACK, WHITE)
+    screen.blit(display_text, (260,30))
 
     # Keys display:
     seven = pygame.draw.rect(screen, WHITE, [10, 90, KEY_WIDTH, KEY_HEIGHT])
@@ -211,6 +213,13 @@ while running:
                 add = pygame.draw.rect(screen, BLACK, [226, 321, KEY_WIDTH, KEY_HEIGHT])
                 add_text = font.render("+", True, BLACK, BLACK)
                 screen.blit(add_text, (246, 335))
+
+        # Calculations:
+        # number1 = input("0")
+        # display = pygame.draw.rect(screen, WHITE, [display_x, display_y, 280, 60])
+        # display_text = font.render(f"{number1}", True, BLACK, WHITE)
+        # screen.blit(display_text, (260, 30))
+
 
     pygame.display.flip()
 
