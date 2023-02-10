@@ -46,6 +46,7 @@ HEIGHT = 400
 WIDTH = 300
 window_bg = "#D8D9CF"
 screen_bg = "#EDEDED"
+black = "#000000"
 
 # Setting up window and icon:
 window = Tk()
@@ -55,9 +56,14 @@ window.iconphoto(False, icon)
 window.config(padx=10, pady=10, bg=window_bg)
 
 # Screen canvas:
-screen_canvas = Canvas(width=300, height=60, bg=screen_bg, highlightthickness=0)
-screen_canvas.pack()
+screen_canvas = Canvas(width=300, height=60, bg=screen_bg)
+screen_canvas.grid(row=0, column=0)
 
+
+
+
+# screen_canvas = Canvas(width=320, height=65, bg=screen2_bg, highlightthickness=0)
+# screen_canvas.pack()
 
 
 window.mainloop()
