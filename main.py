@@ -44,16 +44,19 @@ from tkinter import *
 # Application Constants:
 HEIGHT = 400
 WIDTH = 300
-
+window_bg = "#D8D9CF"
+screen_bg = "#EDEDED"
 
 # Setting up window and icon:
 window = Tk()
 window.title("Calculator")
 icon = PhotoImage(file="icon.png")
 window.iconphoto(False, icon)
+window.config(padx=10, pady=10, bg=window_bg)
 
-
-
+# Screen canvas:
+screen_canvas = Canvas(width=300, height=60, bg=screen_bg, highlightthickness=0)
+screen_canvas.pack()
 
 
 
