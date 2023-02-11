@@ -12,6 +12,7 @@ x_change = 0
 y_position = 50
 number = ""
 operator = ""
+
 # Setting up window and icon:
 window = Tk()
 window.title("Calculator")
@@ -54,7 +55,7 @@ def AC():
     number = ""
     x_position = 280
     x_change = 0
-    switch("0")
+
 
 
 def switch(num):
@@ -72,7 +73,6 @@ def switch(num):
 def calculations():
     global number, x_position, x_change
     num = number.split(operator)
-    print(num)
     n1 = int(num[0])
     n2 = int(num[-1])
 
@@ -83,7 +83,6 @@ def calculations():
         "/": division(n1, n2),
     }
     operation = calci[operator]
-    print(operation)
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=operation, font=("arial", 30, "bold"))
 
@@ -204,8 +203,7 @@ equals_button.grid(row=4, column=2)
 add_button = Button(width=4, height=1, text="+", font=("arial", 20, "bold"), bg=black, fg=white, command=add)
 add_button.grid(row=4, column=3)
 
-# screen_canvas = Canvas(width=320, height=65, bg=screen2_bg, highlightthickness=0)
-# screen_canvas.pack()
+
 
 
 window.mainloop()
