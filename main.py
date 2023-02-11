@@ -85,6 +85,9 @@ def calculations():
     operation = calci[operator]
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=operation, font=("arial", 30, "bold"))
+    number = str(operation)
+    x_position = 280
+    x_change = 0
 
 
 
