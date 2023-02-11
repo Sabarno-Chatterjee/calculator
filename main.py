@@ -1,35 +1,34 @@
-# import art
-# print(art.logo)
-#
-# def add(n1, n2):
-#   return n1 + n2
-#
-# def subtract(n1, n2):
-#   return n1 -  n2
-#
-# def multiply(n1, n2):
-#   return n1 * n2
-#
-# def divide(n1, n2):
-#   return n1/n2
-#
-#
-# def calculations():
-#   n1 = float(input("\nWhats the first number?\n"))
-#
-#   more_operations = True
-#
-#   while more_operations:
-#       operator = input("\nWhats the operator? ('+', '-', '*', '/')\n")
-#       n2 = float(input("\nWhats the next number?\n"))
-#
-#       calci = {
-#         "+" :  add(n1,n2),
-#         "-" :  subtract(n1, n2),
-#         "*" :  multiply(n1, n2),
-#         "/" :   divide(n1, n2),
-#         }
-#
+
+
+def addition(n1, n2):
+  return n1 + n2
+
+def subtract(n1, n2):
+  return n1 -  n2
+
+def multiplication(n1, n2):
+  return n1 * n2
+
+def division(n1, n2):
+  return n1/n2
+
+
+def calculations():
+  n1 = float(input("\nWhats the first number?\n"))
+
+  more_operations = True
+
+  while more_operations:
+      operator = input("\nWhats the operator? ('+', '-', '*', '/')\n")
+      n2 = float(input("\nWhats the next number?\n"))
+
+      calci = {
+        "+" :  add(n1,n2),
+        "-" :  subtract(n1, n2),
+        "*" :  multiply(n1, n2),
+        "/" :   divide(n1, n2),
+        }
+
 #       operation = calci[operator]
 #       print(f"\n{n1} {operator} {n2} = {operation}")
 #       n1 = operation
@@ -64,10 +63,14 @@ window.config(padx=10, pady=10, bg=window_bg)
 # Button functionality:
 def AC():
     # screen_canvas.create_text(280,50, text="0", font=("arial", 30, "bold"))
-    global number
+    global number, x_position, x_change
     screen_canvas.delete("all")
     number = ""
-    screen_canvas.itemconfig(display_number, text="0")
+    x_position = 280
+    x_change = 0
+    switch("0")
+
+
 
 
 def switch(num):
@@ -93,7 +96,7 @@ def nine():
 
 
 def divide():
-    pass
+    switch("/")
 
 
 def four():
@@ -109,7 +112,7 @@ def six():
 
 
 def multiply():
-    pass
+    switch("*")
 
 
 def one():
@@ -125,7 +128,7 @@ def three():
 
 
 def minus():
-    pass
+    switch("-")
 
 
 def zero():
@@ -137,7 +140,8 @@ def equals():
 
 
 def add():
-    pass
+    switch("+")
+
 
 
 # Screen canvas:
@@ -154,7 +158,7 @@ eight_button.grid(row=1, column=1)
 nine_button = Button(width=4, height=1, text="9", font=("arial", 20, "bold"), bg=black, fg=white, command=nine)
 nine_button.grid(row=1, column=2)
 
-divide_button = Button(width=4, height=1, text="/", font=("arial", 20, "bold"), bg=black, fg=white)
+divide_button = Button(width=4, height=1, text="/", font=("arial", 20, "bold"), bg=black, fg=white, command=divide)
 divide_button.grid(row=1, column=3)
 
 # 456* 123- 0C=+
@@ -167,7 +171,7 @@ five_button.grid(row=2, column=1)
 six_button = Button(width=4, height=1, text="6", font=("arial", 20, "bold"), bg=black, fg=white, command=six)
 six_button.grid(row=2, column=2)
 
-multiply_button = Button(width=4, height=1, text="*", font=("arial", 20, "bold"), bg=black, fg=white)
+multiply_button = Button(width=4, height=1, text="*", font=("arial", 20, "bold"), bg=black, fg=white, command=multiply)
 multiply_button.grid(row=2, column=3)
 
 one_button = Button(width=4, height=1, text="1", font=("arial", 20, "bold"), bg=black, fg=white, command=one)
@@ -179,7 +183,7 @@ two_button.grid(row=3, column=1)
 three_button = Button(width=4, height=1, text="3", font=("arial", 20, "bold"), bg=black, fg=white, command=three)
 three_button.grid(row=3, column=2)
 
-minus_button = Button(width=4, height=1, text="-", font=("arial", 20, "bold"), bg=black, fg=white)
+minus_button = Button(width=4, height=1, text="-", font=("arial", 20, "bold"), bg=black, fg=white, command=minus)
 minus_button.grid(row=3, column=3)
 
 zero_button = Button(width=4, height=1, text="0", font=("arial", 20, "bold"), bg=black, fg=white, command=zero)
@@ -188,10 +192,10 @@ zero_button.grid(row=4, column=0)
 clear_button = Button(width=4, height=1, text="AC", font=("arial", 20, "bold"), bg=black, fg=white, command=AC)
 clear_button.grid(row=4, column=1)
 
-equals_button = Button(width=4, height=1, text="=", font=("arial", 20, "bold"), bg=black, fg=white)
+equals_button = Button(width=4, height=1, text="=", font=("arial", 20, "bold"), bg=black, fg=white, command=calculations)
 equals_button.grid(row=4, column=2)
 
-add_button = Button(width=4, height=1, text="+", font=("arial", 20, "bold"), bg=black, fg=white)
+add_button = Button(width=4, height=1, text="+", font=("arial", 20, "bold"), bg=black, fg=white, command=add)
 add_button.grid(row=4, column=3)
 
 # screen_canvas = Canvas(width=320, height=65, bg=screen2_bg, highlightthickness=0)
