@@ -50,6 +50,7 @@ screen_bg = "#EDEDED"
 black = "#000000"
 white = "#FFFFFF"
 x_position = 280
+x_change = 0
 y_position = 50
 number = ""
 # Setting up window and icon:
@@ -63,19 +64,80 @@ window.config(padx=10, pady=10, bg=window_bg)
 # Button functionality:
 def AC():
     # screen_canvas.create_text(280,50, text="0", font=("arial", 30, "bold"))
-
+    global number
+    screen_canvas.delete("all")
+    number = ""
     screen_canvas.itemconfig(display_number, text="0")
 def seven():
-    global number
+    global number, x_position, x_change
     number = number + "7"
+    x_position -= x_change
+    x_change = 10
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+
 
 def eight():
     global number
     number = number + "8"
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+
+
+def nine():
+    global number
+    number = number + "9"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+
+def divide():
+    pass
+
+def four():
+    global number
+    number = number + "4"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def five():
+    global number
+    number = number + "5"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def six():
+    global number
+    number = number + "6"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def multiply():
+    pass
+def one():
+    global number
+    number = number + "1"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def two():
+    global number
+    number = number + "2"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def three():
+    global number
+    number = number + "3"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def minus():
+    pass
+def zero():
+    global number
+    number = number + "0"
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+def equals():
+    pass
+def add():
+    pass
+
+
 # Screen canvas:
 screen_canvas = Canvas(width=310, height=70, bg=screen_bg)
 display_number = screen_canvas.create_text(280,50, text="", font=("arial", 30, "bold"))
@@ -87,38 +149,38 @@ seven_button.grid(row=1, column=0)
 eight_button = Button(width=4, height=1, text="8", font=("arial", 20, "bold"), bg=black, fg=white, command=eight)
 eight_button.grid(row=1, column=1)
 
-nine_button = Button(width=4, height=1, text="9", font=("arial", 20, "bold"), bg=black, fg=white)
+nine_button = Button(width=4, height=1, text="9", font=("arial", 20, "bold"), bg=black, fg=white, command=nine)
 nine_button.grid(row=1, column=2)
 
 divide_button = Button(width=4, height=1, text="/", font=("arial", 20, "bold"), bg=black, fg=white)
 divide_button.grid(row=1, column=3)
 
 # 456* 123- 0C=+
-four_button = Button(width=4, height=1, text="4", font=("arial", 20, "bold"), bg=black, fg=white)
+four_button = Button(width=4, height=1, text="4", font=("arial", 20, "bold"), bg=black, fg=white, command=four)
 four_button.grid(row=2, column=0)
 
-five_button = Button(width=4, height=1, text="5", font=("arial", 20, "bold"), bg=black, fg=white)
+five_button = Button(width=4, height=1, text="5", font=("arial", 20, "bold"), bg=black, fg=white, command=five)
 five_button.grid(row=2, column=1)
 
-six_button = Button(width=4, height=1, text="6", font=("arial", 20, "bold"), bg=black, fg=white)
+six_button = Button(width=4, height=1, text="6", font=("arial", 20, "bold"), bg=black, fg=white, command=six)
 six_button.grid(row=2, column=2)
 
 multiply_button = Button(width=4, height=1, text="*", font=("arial", 20, "bold"), bg=black, fg=white)
 multiply_button.grid(row=2, column=3)
 
-one_button = Button(width=4, height=1, text="1", font=("arial", 20, "bold"), bg=black, fg=white)
+one_button = Button(width=4, height=1, text="1", font=("arial", 20, "bold"), bg=black, fg=white, command=one)
 one_button.grid(row=3, column=0)
 
-two_button = Button(width=4, height=1, text="2", font=("arial", 20, "bold"), bg=black, fg=white)
+two_button = Button(width=4, height=1, text="2", font=("arial", 20, "bold"), bg=black, fg=white, command=two)
 two_button.grid(row=3, column=1)
 
-three_button = Button(width=4, height=1, text="3", font=("arial", 20, "bold"), bg=black, fg=white)
+three_button = Button(width=4, height=1, text="3", font=("arial", 20, "bold"), bg=black, fg=white, command=three)
 three_button.grid(row=3, column=2)
 
 minus_button = Button(width=4, height=1, text="-", font=("arial", 20, "bold"), bg=black, fg=white)
 minus_button.grid(row=3, column=3)
 
-zero_button = Button(width=4, height=1, text="0", font=("arial", 20, "bold"), bg=black, fg=white)
+zero_button = Button(width=4, height=1, text="0", font=("arial", 20, "bold"), bg=black, fg=white, command=zero)
 zero_button.grid(row=4, column=0)
 
 clear_button = Button(width=4, height=1, text="AC", font=("arial", 20, "bold"), bg=black, fg=white, command=AC)
@@ -134,8 +196,7 @@ add_button.grid(row=4, column=3)
 # screen_canvas = Canvas(width=320, height=65, bg=screen2_bg, highlightthickness=0)
 # screen_canvas.pack()
 
-def AC():
-    screen_canvas.create_text(text="0")
+
 
 
 window.mainloop()
