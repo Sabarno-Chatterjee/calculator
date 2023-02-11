@@ -1,44 +1,3 @@
-
-
-def addition(n1, n2):
-  return n1 + n2
-
-def subtract(n1, n2):
-  return n1 -  n2
-
-def multiplication(n1, n2):
-  return n1 * n2
-
-def division(n1, n2):
-  return n1/n2
-
-
-def calculations():
-  n1 = float(input("\nWhats the first number?\n"))
-
-  more_operations = True
-
-  while more_operations:
-      operator = input("\nWhats the operator? ('+', '-', '*', '/')\n")
-      n2 = float(input("\nWhats the next number?\n"))
-
-      calci = {
-        "+" :  add(n1,n2),
-        "-" :  subtract(n1, n2),
-        "*" :  multiply(n1, n2),
-        "/" :   divide(n1, n2),
-        }
-
-#       operation = calci[operator]
-#       print(f"\n{n1} {operator} {n2} = {operation}")
-#       n1 = operation
-#       if input(("\nPress enter to perform calculations with the same number or press N to start a new calculator.").lower()) == "n":
-#         more_operations = False
-#         calculations()
-#
-# calculations()
-
-
 from tkinter import *
 
 # Application Constants:
@@ -52,12 +11,39 @@ x_position = 280
 x_change = 0
 y_position = 50
 number = ""
+operator = ""
 # Setting up window and icon:
 window = Tk()
 window.title("Calculator")
 icon = PhotoImage(file="icon.png")
 window.iconphoto(False, icon)
 window.config(padx=10, pady=10, bg=window_bg)
+
+
+def addition(n1, n2):
+    return n1 + n2
+
+
+def subtract(n1, n2):
+    return n1 - n2
+
+
+def multiplication(n1, n2):
+    return n1 * n2
+
+
+def division(n1, n2):
+    return n1 / n2
+
+
+#       operation = calci[operator]
+#       print(f"\n{n1} {operator} {n2} = {operation}")
+#       n1 = operation
+#       if input(("\nPress enter to perform calculations with the same number or press N to start a new calculator.").lower()) == "n":
+#         more_operations = False
+#         calculations()
+#
+# calculations()
 
 
 # Button functionality:
@@ -71,16 +57,36 @@ def AC():
     switch("0")
 
 
-
-
 def switch(num):
-    global number, x_position, x_change
+    global number, x_position, x_change, operator
+    if num in ["+", "-", "*", "/"]:
+        operator = num
     x_position -= x_change
     x_change = 10
     number = number + num
     # if len(number) > 12
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+
+
+def calculations():
+    global number, x_position, x_change
+    num = number.split(operator)
+    print(num)
+    n1 = float(num[0])
+    n2 = float(num[-1])
+
+    calci = {
+        "+": addition(n1, n2),
+        "-": subtract(n1, n2),
+        "*": multiplication(n1, n2),
+        "/": division(n1, n2),
+    }
+    operation = calci[operator]
+    print(operation)
+    screen_canvas.delete("all")
+    screen_canvas.create_text(x_position, y_position, text=operation, font=("arial", 30, "bold"))
+
 
 
 def seven():
@@ -143,7 +149,6 @@ def add():
     switch("+")
 
 
-
 # Screen canvas:
 screen_canvas = Canvas(width=310, height=70, bg=screen_bg)
 display_number = screen_canvas.create_text(280, 50, text="", font=("arial", 30, "bold"))
@@ -192,7 +197,8 @@ zero_button.grid(row=4, column=0)
 clear_button = Button(width=4, height=1, text="AC", font=("arial", 20, "bold"), bg=black, fg=white, command=AC)
 clear_button.grid(row=4, column=1)
 
-equals_button = Button(width=4, height=1, text="=", font=("arial", 20, "bold"), bg=black, fg=white, command=calculations)
+equals_button = Button(width=4, height=1, text="=", font=("arial", 20, "bold"), bg=black, fg=white,
+                       command=calculations)
 equals_button.grid(row=4, column=2)
 
 add_button = Button(width=4, height=1, text="+", font=("arial", 20, "bold"), bg=black, fg=white, command=add)
