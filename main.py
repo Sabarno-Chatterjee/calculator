@@ -73,8 +73,8 @@ def calculations():
     global number, x_position, x_change
     num = number.split(operator)
     print(num)
-    n1 = float(num[0])
-    n2 = float(num[-1])
+    n1 = int(num[0])
+    n2 = int(num[-1])
 
     calci = {
         "+": addition(n1, n2),
