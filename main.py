@@ -68,79 +68,81 @@ def AC():
     screen_canvas.delete("all")
     number = ""
     screen_canvas.itemconfig(display_number, text="0")
-def seven():
+
+
+def switch(num):
     global number, x_position, x_change
-    number = number + "7"
     x_position -= x_change
     x_change = 10
+    number = number + num
+    # if len(number) > 12
     screen_canvas.delete("all")
     screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+
+
+def seven():
+    switch("7")
 
 
 def eight():
-    global number
-    number = number + "8"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("8")
 
 
 def nine():
-    global number
-    number = number + "9"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("9")
+
 
 def divide():
     pass
 
+
 def four():
-    global number
-    number = number + "4"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("4")
+
+
 def five():
-    global number
-    number = number + "5"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("5")
+
+
 def six():
-    global number
-    number = number + "6"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("6")
+
+
 def multiply():
     pass
+
+
 def one():
-    global number
-    number = number + "1"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("1")
+
+
 def two():
-    global number
-    number = number + "2"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("2")
+
+
 def three():
-    global number
-    number = number + "3"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("3")
+
+
 def minus():
     pass
+
+
 def zero():
-    global number
-    number = number + "0"
-    screen_canvas.delete("all")
-    screen_canvas.create_text(x_position, y_position, text=number, font=("arial", 30, "bold"))
+    switch("0")
+
+
 def equals():
     pass
+
+
 def add():
     pass
 
 
 # Screen canvas:
 screen_canvas = Canvas(width=310, height=70, bg=screen_bg)
-display_number = screen_canvas.create_text(280,50, text="", font=("arial", 30, "bold"))
+display_number = screen_canvas.create_text(280, 50, text="", font=("arial", 30, "bold"))
 screen_canvas.grid(row=0, column=0, columnspan=4, pady=10)
 
 seven_button = Button(width=4, height=1, text="7", font=("arial", 20, "bold"), bg=black, fg=white, command=seven)
@@ -192,11 +194,8 @@ equals_button.grid(row=4, column=2)
 add_button = Button(width=4, height=1, text="+", font=("arial", 20, "bold"), bg=black, fg=white)
 add_button.grid(row=4, column=3)
 
-
 # screen_canvas = Canvas(width=320, height=65, bg=screen2_bg, highlightthickness=0)
 # screen_canvas.pack()
-
-
 
 
 window.mainloop()
