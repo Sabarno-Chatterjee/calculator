@@ -88,6 +88,7 @@ def calculations():
 
 
 
+
 def seven():
     switch("7")
 
